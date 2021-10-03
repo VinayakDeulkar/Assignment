@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 const regForEmail=RegExp(/^[^\s@]+@[^\s@]+\.[^\s@]+$/);
-export class Validation extends Component {
+export class ApplicationForm extends Component {
     constructor(props){
         super(props);
         this.state={
@@ -57,7 +57,7 @@ export class Validation extends Component {
                 case 'pincode':
                         errors.pincode=value.length<6?'Pincode must be of length 6':'';
                         break; 
-
+                default:
                     break;
             }
             this.setState({errors,[name]:value},()=>{
@@ -95,15 +95,15 @@ export class Validation extends Component {
 
 
 <div> Gender </div> 
-<div class="form-check">
-  <input className="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1"  />
-  <label className="form-check-label" for="exampleRadios1">
+<div className="form-check">
+  <input className="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" defaultValue="option1"  />
+  <label className="form-check-label" htmlFor="exampleRadios1">
     Male
   </label>
 </div>
-<div class="form-check">
-  <input className="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2" />
-  <label className="form-check-label" for="exampleRadios2">
+<div className="form-check">
+  <input className="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" defaultValue="option2" />
+  <label className="form-check-label" htmlFor="exampleRadios2">
     Female
   </label>
 </div>
@@ -128,9 +128,9 @@ Mother's Name: <input type="text" name="mother" onChange={this.handler}/><br/> {
             <span style={{color:'red'}}>{errors.pincode}</span>}<br/>
 
          
-          <label for="inputState">State</label>
+          <label >State</label>
            <select id="inputState" >
-          <option selected>Choose...</option>
+          <option defaultValue>Choose...</option>
           <option>Maharashtra</option>
           <option>Kerala</option>
           <option>Utter Pradesh</option>
@@ -139,7 +139,7 @@ Mother's Name: <input type="text" name="mother" onChange={this.handler}/><br/> {
         </select> <br />
          
 
-            <input type="submit" value="submit" />
+            <input type="submit" className="btn btn-info" value="submit" />
                 </form>
 
             </div>
@@ -147,4 +147,4 @@ Mother's Name: <input type="text" name="mother" onChange={this.handler}/><br/> {
     }
 }
 
-export default Validation;
+export default ApplicationForm;

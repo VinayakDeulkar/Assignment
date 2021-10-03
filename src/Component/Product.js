@@ -1,11 +1,11 @@
 import React, { Component } from 'react'
 import data from '../product.json'
-import handleClick from './Cart';
+import Cart from './Cart';
 
 export class Product extends Component {
     constructor(props){
         super(props);
-        this.state={proData:[],count:''};
+        this.state={proData:[],count:'',Carting:[]};
     }
     componentDidMount(){
         
@@ -67,7 +67,7 @@ export class Product extends Component {
                 <div>
                 <nav className="nav">
                         <a className="nav-link active" href="a" >Home</a>
-                        <a className="nav-link" onClick={handleClick}>Cart <i className="fa fa-shopping-cart mr-2"></i> {this.state.count}</a>
+                        <a className="nav-link" href="a">Cart <i className="fa fa-shopping-cart mr-2"></i> {this.state.count}</a>
                         <a className="nav-link" href="a">profile</a>
                         <a className="nav-link " href="a">Disabled</a>
                 </nav>
@@ -92,9 +92,15 @@ export class Product extends Component {
                     
                     ) }
                 </div>
+                
+                <Cart  />
+
             </div>
+            
+
+
         )
     }
 }
-// const display=Cart();
+
 export default Product
